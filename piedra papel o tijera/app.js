@@ -17,13 +17,13 @@ let score2 = 0
 
 function singleplayer () {
     single = true
-    parrafo0.innerHTML = "<h2>Singleplayer</h2><p>Elige piedra, papel o tijera!</p>"
+    parrafo0.innerHTML = "<h2>Singleplayer</h2><p>Choose rock, paper or scissors!</p>"
     setup()
 }
 
 function multiplayer() {
     multi = true
-    parrafo0.innerHTML = "<h2>Multiplayer</h2><p>Jugador 1: Elige piedra, papel o tijera!</p>"
+    parrafo0.innerHTML = "<h2>Multiplayer</h2><p>Player 1: Choose rock, paper or scissors!</p>"
     setup()
 }
 
@@ -41,8 +41,8 @@ function setup() {
     refresh.onclick = function () {
         window.location.reload() // reloads the page
     }
-    document.body.appendChild(parrafo1);
-    document.body.appendChild(parrafo2);
+    document.body.appendChild(parrafo1)
+    document.body.appendChild(parrafo2)
     document.body.appendChild(refresh)
 }
 
@@ -51,19 +51,18 @@ function handleClick (e) {
     if (single) {
         userChoice = target
         computerChoice = Math.floor(Math.random() * (3))
-        getResults (userChoice, computerChoice) // (player1, player2)
+        getResults (userChoice, computerChoice)
         console.log(userChoice, computerChoice)
-    }
-    if (multi) { // The user needs to be able to make 2 clicks before getting a result
+    } else if (multi) { // The user needs to be able to make 2 clicks before getting a result
         if (!clicked) {
             clicked = true
             userChoice = target
-            parrafo0.innerHTML += "<p>Jugador 1 hizo su eleccion!</p><p>Ahora, Jugador 2: Elige piedra, papel o tijera!</p>";
+            parrafo0.innerHTML += "<p>Player 1 has chosen!</p><p>Now, Player 2: Choose rock, paper or scissors!</p>"
         } else {
             clicked = false
             user2Choice = target
             getResults (userChoice, user2Choice)
-            parrafo0.innerHTML = "<h2>Multiplayer</h2><p>Jugador 1: Elige piedra, papel o tijera!</p>"
+            parrafo0.innerHTML = "<h2>Multiplayer</h2><p>Player 1: Choose rock, paper or scissors!</p>"
         }
         console.log(userChoice, user2Choice)
     }
@@ -71,16 +70,16 @@ function handleClick (e) {
 
 function getResults(player1, player2) {
     if (player1 == player2) {
-        parrafo1.innerHTML = "It's a draw.";
+        parrafo1.innerHTML = "It's a draw!"
     } else if (player1 == player2 + 1) {
-        parrafo1.innerHTML = "Jugador 1 ha ganado!";
+        parrafo1.innerHTML = "Player 1 has won!"
         score1++;
     } else if (player1 == player2 - 2) {
-        parrafo1.innerHTML = "Jugador 1 ha ganado!";
+        parrafo1.innerHTML = "Player 1 has won!"
         score1++;
     } else {
-        parrafo1.innerHTML = "Jugador 2 ha ganado!";
+        parrafo1.innerHTML = "Player 2 has won!"
         score2++;
     }
-    parrafo2.innerHTML = "Score Jugador 1: " + score1 + "<br>Score Jugador 2: " + score2;
+    parrafo2.innerHTML = "Score Player 1: " + score1 + "<br>Score Player 2: " + score2
 }
