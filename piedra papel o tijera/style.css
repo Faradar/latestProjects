@@ -1,6 +1,11 @@
+@font-face {
+    font-family: Kavoon;
+    src: url("fonts/Kavoon-Regular.ttf");
+}
+
 body {
     text-align: center;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: Kavoon;
 }
 
 img {
