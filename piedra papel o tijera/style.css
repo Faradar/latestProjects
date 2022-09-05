@@ -1,11 +1,8 @@
-@font-face {
-    font-family: Kavoon;
-    src: url("fonts/Kavoon-Regular.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
 
 body {
     text-align: center;
-    font-family: Kavoon;
+    font-family: 'Kavoon', cursive;
 }
 
 img {

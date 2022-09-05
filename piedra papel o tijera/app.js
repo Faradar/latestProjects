@@ -2,12 +2,14 @@
 Que se pueda elegir si es singleplayer o multiplayer (2 jugadores).
 Que tenga imagenes clickeables.
 Que tenga una pantalla de seleccion de modo con botones que luego te lleven al juego
+Que puedas volver a esa pantalla de seleccion con otro boton
 */
 
 const parrafo0 = document.getElementById('par0')
 const parrafo1 = document.createElement("p")
 const parrafo2 = document.createElement("p")
 const choices = ["piedra", "papel", "tijera"]
+const sources = ["https://i.imgur.com/749xmq8.png", "https://i.imgur.com/zjYmEWQ.png", "https://i.imgur.com/iVZLgXJ.png"]
 
 let single = false
 let multi = false
@@ -30,8 +32,8 @@ function multiplayer() {
 function setup() {
     choices.forEach(choice => {
         img = document.createElement("img")
-        img.src = "img/" + choice + ".png"
         img.id = choices.indexOf(choice)
+        img.src = sources[choices.indexOf(choice)] // Otra forma de hacer esto => img.src = `./img/${choice}.png` => que es igual a escribir => "./img/" + choice + ".png"
         document.body.appendChild(img)
         img.addEventListener("click", handleClick)
     })
@@ -71,10 +73,7 @@ function handleClick (e) {
 function getResults(player1, player2) {
     if (player1 == player2) {
         parrafo1.innerHTML = "It's a draw!"
-    } else if (player1 == player2 + 1) {
-        parrafo1.innerHTML = "Player 1 has won!"
-        score1++;
-    } else if (player1 == player2 - 2) {
+    } else if (player1 == player2 + 1 || player1 == player2 - 2) {
         parrafo1.innerHTML = "Player 1 has won!"
         score1++;
     } else {
