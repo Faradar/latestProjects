@@ -3,6 +3,7 @@ Que se pueda elegir si es singleplayer o multiplayer (2 jugadores).
 Que tenga imagenes clickeables.
 Que tenga una pantalla de seleccion de modo con botones que luego te lleven al juego
 Que puedas volver a esa pantalla de seleccion con otro boton
+Que las imagenes y las fuentes sean sacadas de la web y no de archivos en la carpeta
 */
 
 const parrafo0 = document.getElementById('par0')
