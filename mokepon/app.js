@@ -45,15 +45,20 @@ qa(".ataque").forEach(boton => {
 
             if (q("#vida-jugador").innerHTML == 0) {
 
-                q("#resultado-final").innerHTML = `Su ${mascotaEnemigo} derroto a tu ${mascotaJugador}. Fin del combate.`
+                q("#resultado-final").innerHTML = `Su ${mascotaEnemigo} derroto a tu ${mascotaJugador}.<p>
+                <a href="https://www.youtube.com/watch?v=dwLCjZVEtpE&ab_channel=SathButtons" 
+                target="_blank" rel="noopener noreferrer">Has perdido, pero no te rindas! 🤕</a><p>Fin del combate.`
+                // Agrego un link en el texto. target="_blank" es para que se abra en una nueva tab 
+                // y uso rel="noopener noreferrer" para prevenir un tipo de phishing conocido como tabnabbing.
                 qa(".ataque").forEach(boton => boton.remove())
 
             } else if (q("#vida-enemigo").innerHTML == 0) {
 
-                q("#resultado-final").innerHTML = `Tu ${mascotaJugador} derroto a su ${mascotaEnemigo}. Fin del combate.`
+                q("#resultado-final").innerHTML = `Tu ${mascotaJugador} derroto a su ${mascotaEnemigo}.<p>
+                <a href="https://www.youtube.com/watch?v=TcZJHIzW9-w&ab_channel=NobuoUematsu-Topic" 
+                target="_blank" rel="noopener noreferrer">Felicitaciones, has Ganado! 🎊</a><p>Fin del combate.`
                 qa(".ataque").forEach(boton => boton.remove())
             }
-
         } else {
             alert("No has seleccionado nada!") 
             // si se aprieta un boton antes de seleccionar una mascota sale esto
