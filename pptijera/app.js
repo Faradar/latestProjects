@@ -42,7 +42,7 @@ function setup() {
     const refresh = document.createElement("button")
     refresh.innerHTML = "Menu"
     refresh.onclick = function () {
-        window.location.reload() // reloads the page
+        location.reload() // reloads the page. This is the same as writing window.location.reload().
     }
     document.body.appendChild(parrafo1)
     document.body.appendChild(parrafo2)

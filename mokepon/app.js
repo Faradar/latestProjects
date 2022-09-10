@@ -67,5 +67,5 @@ qa(".ataque").forEach(boton => {
 })
 
 q("#boton-reiniciar").addEventListener("click", () => {
-    window.location.reload() // reloads the page
+    location.reload() // reloads the page
 })
