@@ -1,4 +1,4 @@
-/* Hacer un juego de piedra, papel o tijera. 
+/* Hacer un juego de piedra, papel o tijera.
 Que se pueda elegir si es singleplayer o multiplayer (2 jugadores).
 Que tenga imagenes clickeables.
 Que tenga una pantalla de seleccion de modo con botones que luego te lleven al juego
