@@ -1,3 +1,137 @@
+/* 1. Quitar el radial y hacer que los nombres de los mokepones resalten al ser seleccionados (quiza agregar una foto de los mokepones?) */
+/* 2. Hacer los botones de seleccionar, fuego, agua, tierra y reiniciar sean mas lindos y tengan su propia estetica. */
+/* 3. Cambiar el color final de has perdido y has ganado.  */
+
+@font-face {
+    font-family: pokemon;
+    src: url(fonts/Pokemon\ Solid.ttf);
+}
+
 body {
     text-align: center;
+    font-family: pokemon;
+    font-size: 1.5em;
+    color: #FFCB05;
+    -webkit-text-stroke: 2px #395FAA; /* width and color */
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, #dc2f02ff 0%, #00b4d8ff 50%, #2a9134ff 100%);
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFCB05;
+    -webkit-text-stroke: 2px #395FAA;
+    padding: 1px 6px 2px 10px;
+    border: solid #395FAA;
+    border-radius: 8px;
+    border-width: 2px;
+    transition: box-shadow .2s,-webkit-box-shadow .2s;
+}
+
+a:hover {
+    box-shadow: #395FAA 0 0 0 5px, transparent 0 0 0 0;
+}
+
+h1 {
+    margin-top: -50px;
+    margin-bottom: -40px;
+}
+
+button {
+    font-family: pokemon;
+    font-size: 30px;
+    color: #FFCB05;
+    letter-spacing: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 1.2rem 1.2rem;
+    transition: box-shadow .2s,-webkit-box-shadow .2s;
+    border-width: 2px;
+    border-color: #395FAA;
+    height: 80px;
+    background: none;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover{
+    box-shadow: #395FAA 0 0 0 5px, transparent 0 0 0 0;
+}
+
+#boton-mascota::before {
+    content: "";
+    position: absolute;
+    top: -32px;
+    left: -10px;
+    background: url("img/selection.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 110%;
+    height: 200%;
+    z-index: -1;
+    opacity: 0;
+    transition: 1s;
+}
+
+#boton-mascota:hover::before {
+    opacity: 1;
+}
+
+#boton-fuego::before {
+    content: "";
+    position: absolute;
+    top: -32px;
+    left: -10px;
+    background: url("img/fire.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 110%;
+    height: 200%;
+    z-index: -1;
+    opacity: 0;
+    transition: 1s;
+}
+
+#boton-fuego:hover::before {
+    opacity: 1;
+}
+
+#boton-agua::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -10px;
+    background: url("img/water.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 110%;
+    height: 200%;
+    z-index: -1;
+    opacity: 0;
+    transition: 1s;
+}
+
+#boton-agua:hover::before {
+    opacity: 1;
+}
+
+#boton-planta::before {
+    content: "";
+    position: absolute;
+    top: -32px;
+    left: -10px;
+    background: url("img/plant.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 110%;
+    height: 200%;
+    z-index: -1;
+    opacity: 0;
+    transition: 1s;
+}
+
+#boton-planta:hover::before {
+    opacity: 1;
 }

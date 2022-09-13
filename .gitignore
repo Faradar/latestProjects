@@ -1,2 +1,4 @@
 *.png
 *.ttf
+extra/
+!mokepon/fonts/*.ttf
