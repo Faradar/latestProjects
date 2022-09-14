@@ -56,9 +56,9 @@ qa(".ataque").forEach(boton => {
             target="_blank" rel="noopener noreferrer">Has perdido, pero no te rindas! 🤕</a><p>Fin del combate.`
             // Agrego un link en el texto. target="_blank" es para que se abra en una nueva tab
             // y uso rel="noopener noreferrer" para prevenir un tipo de phishing conocido como tabnabbing.
-            qa(".ataque").forEach(boton => boton.disabled = true)
-            // Alternativamente, en lugar de deshabilitar los botones puedo borrarlos asi:
-            // qa(".ataque").forEach(boton => boton.remove())
+            qa(".ataque").forEach(boton => boton.remove())
+            // Alternativamente, en lugar de borrar los botones puedo deshabilitarlos asi:
+            // qa(".ataque").forEach(boton => boton.disabled = true)
             q("#reiniciar").hidden = false
 
         } else if (q("#vida-enemigo").innerHTML == 0) {
@@ -66,7 +66,7 @@ qa(".ataque").forEach(boton => {
             q("#resultado-final").innerHTML = `Tu ${mascotaJugador} derroto a su ${mascotaEnemigo}.<p>
             <a href="https://www.youtube.com/watch?v=TcZJHIzW9-w&ab_channel=NobuoUematsu-Topic"
             target="_blank" rel="noopener noreferrer">Felicitaciones, has Ganado! 🎊</a><p>Fin del combate.`
-            qa(".ataque").forEach(boton => boton.disabled = true)
+            qa(".ataque").forEach(boton => boton.remove())
             q("#reiniciar").hidden = false
         }
     })
