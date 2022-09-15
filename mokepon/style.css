@@ -3,21 +3,23 @@
     src: url(fonts/Pokemon\ Solid.ttf);
 }
 
-body {
+* {
+	box-sizing: border-box;
     text-align: center;
     font-family: pokemon;
-    font-size: 1.5em;
     color: #FFCB05;
     -webkit-text-stroke: 2px #395FAA; /* width and color */
     letter-spacing: 4px;
+}
+
+body {
+    font-size: 1.5em;
     background: linear-gradient(90deg, #dc2f02ff 0%, #00b4d8ff 50%, #2a9134ff 100%);
 }
 
 a {
     display: inline-block;
     text-decoration: none;
-    color: #FFCB05;
-    -webkit-text-stroke: 2px #395FAA;
     padding: 1px 6px 2px 10px;
     border: solid #395FAA;
     border-radius: 8px;
@@ -35,10 +37,7 @@ h1 {
 }
 
 button {
-    font-family: pokemon;
     font-size: 30px;
-    color: #FFCB05;
-    letter-spacing: 4px;
     border-radius: 8px;
     cursor: pointer;
     line-height: 1;
