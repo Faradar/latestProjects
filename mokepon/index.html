@@ -39,25 +39,35 @@
     <section id="seleccionar-ataque" hidden>
         <h2>Elige tu ataque:</h2>
 
-        <p>Tu <span id="mascota-jugador">mascota</span> tiene <span id="vida-jugador">3</span> vidas</p>
-        <p>Su <span id="mascota-enemigo">mascota</span> tiene <span id="vida-enemigo">3</span> vidas</p>
-
         <p>
             <button id="boton-fuego" class="ataque" value="0">Fuego 🔥</button>
             <button id="boton-agua" class="ataque" value="1">Agua 💧</button>
             <button id="boton-planta" class="ataque" value="2">Planta 🌱</button>
         </p>
-    </section>
 
-    <section id="mensajes">
-        <p></p>
         <p id="resultado-final"></p>
-    </section>
 
-    <section id="reiniciar" hidden>
-        <button id="boton-reiniciar">Reiniciar</button>
-    </section>
+        <section id="reiniciar" hidden>
+            <button id="boton-reiniciar">Reiniciar</button>
+        </section>
 
+        <div class="vidas">
+            <p>
+                Jugador: <span id="mascota-jugador">mascota</span>
+                <br>
+                Vidas: <span id="vida-jugador">❤❤❤</span>
+                <br>
+                <span id="mensaje-jugador" class="ataques"></span>
+            </p>
+            <p>
+                PC: <span id="mascota-enemigo">mascota</span>
+                <br>
+                Vidas: <span id="vida-enemigo">❤❤❤</span>
+                <br>
+                <span id="mensaje-enemigo" class="ataques"></span>
+            </p>
+        </div>
+    </section>
     <script src="app.js"></script>
 </body>
 </html>

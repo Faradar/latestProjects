@@ -1,9 +1,12 @@
 const mokepones = ["Hipodoge", "Capipepo", "Ratigueya"]
+const vidas = ["💀", "❤", "❤❤", "❤❤❤"]
 const q = selector => document.querySelector(selector) // shortcut para document.querySelector
 const qa = selector => document.querySelectorAll(selector) // shortcut para document.querySelectorAll
 
 let mascotaJugador
 let mascotaEnemigo
+let vidaJ = 3
+let vidaE = 3
 
 // funcion que se ejecuta cuando se aprieta el boton de seleccionar mascota
 q('#boton-mascota').addEventListener('click', () => {
@@ -40,16 +43,18 @@ qa(".ataque").forEach(boton => {
             resultado = "Empataron! 🤝🏼"
         } else if (ataqueJugadorValue == ataqueEnemigoValue + 1 || ataqueJugadorValue == ataqueEnemigoValue - 2) {
             resultado = "Ganaste! 🎉"
-            q("#vida-enemigo").innerHTML -= 1
+            vidaE -= 1
+            q("#vida-enemigo").innerHTML = vidas[vidaE]
         } else {
             resultado = "Perdiste! 😱"
-            q("#vida-jugador").innerHTML -= 1
+            vidaJ -= 1
+            q("#vida-jugador").innerHTML = vidas[vidaJ]
         }
 
-        q("#mensajes > p").innerHTML += `Tu ${mascotaJugador} atacó con ${ataqueJugador},
-        su ${mascotaEnemigo} ataco con ${ataqueEnemigo} - ${resultado}<p>`
+        q("#mensaje-jugador").innerHTML += ataqueJugador + "<br>"
+        q("#mensaje-enemigo").innerHTML += ataqueEnemigo + "<br>"
 
-        if (q("#vida-jugador").innerHTML == 0) {
+        if (q("#vida-jugador").innerHTML == "💀") {
 
             q("#resultado-final").innerHTML = `Su ${mascotaEnemigo} derroto a tu ${mascotaJugador}.<p>
             <a href="https://www.youtube.com/watch?v=dwLCjZVEtpE&ab_channel=SathButtons"
@@ -61,7 +66,7 @@ qa(".ataque").forEach(boton => {
             // qa(".ataque").forEach(boton => boton.disabled = true)
             q("#reiniciar").hidden = false
 
-        } else if (q("#vida-enemigo").innerHTML == 0) {
+        } else if (q("#vida-enemigo").innerHTML == "💀") {
 
             q("#resultado-final").innerHTML = `Tu ${mascotaJugador} derroto a su ${mascotaEnemigo}.<p>
             <a href="https://www.youtube.com/watch?v=TcZJHIzW9-w&ab_channel=NobuoUematsu-Topic"

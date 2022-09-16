@@ -17,14 +17,14 @@ body {
     background: linear-gradient(90deg, #dc2f02ff 0%, #00b4d8ff 50%, #2a9134ff 100%);
 }
 
-input {
-    display: none;
-}
-
 .tarjetas {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+input {
+    display: none;
 }
 
 .tarjeta-mokepon {
@@ -39,6 +39,7 @@ input {
     height: 250px;
     margin: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .tarjeta-mokepon:hover {
@@ -49,12 +50,6 @@ input {
     width: 150px;
     text-align: start;
     margin-bottom: -30px;
-}
-
-input:checked + .tarjeta-mokepon::before {
-    background: url("img/ball.png");
-    background-position: center;
-    background-size: contain;
 }
 
 .tarjeta-mokepon::before {
@@ -71,20 +66,6 @@ input:checked + .tarjeta-mokepon::before {
 
 input:checked + .tarjeta-mokepon::before {
     opacity: 1;
-}
-
-a {
-    display: inline-block;
-    text-decoration: none;
-    padding: 1px 6px 2px 10px;
-    border: solid #395FAA;
-    border-radius: 8px;
-    border-width: 2px;
-    transition: box-shadow .2s,-webkit-box-shadow .2s;
-}
-
-a:hover {
-    box-shadow: #395FAA 0 0 0 5px, transparent 0 0 0 0;
 }
 
 h1 {
@@ -153,4 +134,37 @@ button:hover::before {
 #boton-planta::before {
     background: url("img/plant.gif");
     background-size: cover;
+}
+
+.vidas {
+    display: flex;
+    justify-content: center;
+}
+
+.vidas > p{
+    margin: 10px;
+    border: solid #395FAA;
+    width: 370px;
+    min-height: 370px;
+    height: fit-content;
+}
+
+.ataques {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 1px 6px 2px 10px;
+    border: solid #395FAA;
+    border-radius: 8px;
+    border-width: 2px;
+    transition: box-shadow .2s,-webkit-box-shadow .2s;
+}
+
+a:hover {
+    box-shadow: #395FAA 0 0 0 5px, transparent 0 0 0 0;
 }
