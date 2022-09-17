@@ -1,4 +1,5 @@
 const mokepones = ["Hipodoge", "Capipepo", "Ratigueya"]
+const mokeponesImg = ["img/hipodoge.png", "img/capipepo.png", "img/ratigueya.png"]
 const vidas = ["💀", "❤", "❤❤", "❤❤❤"]
 const q = selector => document.querySelector(selector) // shortcut para document.querySelector
 const qa = selector => document.querySelectorAll(selector) // shortcut para document.querySelectorAll
@@ -21,6 +22,17 @@ q('#boton-mascota').addEventListener('click', () => {
         q("#mascota-jugador").innerHTML = mascotaJugador
         q("#mascota-enemigo").innerHTML = mascotaEnemigo
         // cambia el texto del enemigo en elegir ataque por la mascota que se elige aleatoriamente
+
+        for (let i = 0; i < mokeponesImg.length; i++) {
+            if (mascotaJugador == mokepones[i]) {
+                q("#foto-jugador").src = mokeponesImg[i];
+            }
+
+            if (mascotaEnemigo == mokepones[i]) {
+                q("#foto-enemigo").src = mokeponesImg[i];
+            }
+        }
+
         q("#seleccionar-mascota").hidden = true
         q("#seleccionar-ataque").hidden = false
         // una vez seleccionado el mokepon, oculto el area de seleccion y revelo el area de ataques

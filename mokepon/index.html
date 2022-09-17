@@ -18,18 +18,21 @@
             <label class="tarjeta-mokepon" for="hipodoge">
                 <p>Hipodoge</p>
                 <img src="img/hipodoge.png" alt="Hipodoge">
+                <span class="tooltiptext" id="tooltip-doge">El mejor amigo del hombre</span>
             </label>
 
             <input type="radio" name="mascota" id="capipepo" value="Capipepo">
             <label class="tarjeta-mokepon" for="capipepo">
                 <p>Capipepo</p>
                 <img src="img/capipepo.png" alt="Capipepo">
+                <span class="tooltiptext" id="tooltip-pepo">Mitad capibara mitad es un enigma</span>
             </label>
 
             <input type="radio" name="mascota" id="ratigueya" value="Ratigueya">
             <label class="tarjeta-mokepon" for="ratigueya">
                 <p>Ratigueya</p>
                 <img src="img/ratigueya.png" alt="Ratigueya">
+                <span class="tooltiptext" id="tooltip-gueya">Con todo el poder de un niño rata</span>
             </label>
         </div>
 
@@ -40,26 +43,39 @@
         <h2>Elige tu ataque:</h2>
 
         <p>
-            <button id="boton-fuego" class="ataque" value="0">Fuego 🔥</button>
-            <button id="boton-agua" class="ataque" value="1">Agua 💧</button>
-            <button id="boton-planta" class="ataque" value="2">Planta 🌱</button>
+            <div class="botones-ataque">
+                <div class="botones-ataque2">
+                    <button id="boton-fuego" class="ataque" value="0">Fuego 🔥</button>
+                    <span class="tooltiptext" id="tooltip-fuego">Quema las plantas</span>
+                </div>
+                <div class="botones-ataque2">
+                    <button id="boton-agua" class="ataque" value="1">Agua 💧</button>
+                    <span class="tooltiptext" id="tooltip-agua">Apaga el fuego</span>
+                </div>
+                <div class="botones-ataque2">
+                    <button id="boton-planta" class="ataque" value="2">Planta 🌱</button>
+                    <span class="tooltiptext" id="tooltip-planta">Absorbe el agua</span>
+                </div>
+            </div>
         </p>
 
         <p id="resultado-final"></p>
 
-        <section id="reiniciar" hidden>
+        <div id="reiniciar" hidden>
             <button id="boton-reiniciar">Reiniciar</button>
-        </section>
+        </div>
 
         <div class="vidas">
             <p>
-                Jugador: <span id="mascota-jugador">mascota</span>
+                <img class="fotos" id="foto-jugador">
+                Jugador: <span id="mascota-jugador"></span>
                 <br>
                 Vidas: <span id="vida-jugador">❤❤❤</span>
                 <br>
                 <span id="mensaje-jugador" class="ataques"></span>
             </p>
             <p>
+                <img class="fotos" id="foto-enemigo">
                 PC: <span id="mascota-enemigo">mascota</span>
                 <br>
                 Vidas: <span id="vida-enemigo">❤❤❤</span>

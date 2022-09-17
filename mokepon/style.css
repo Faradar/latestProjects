@@ -111,7 +111,7 @@ button:hover::before {
 #boton-mascota {
     display: block;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 100px;
     width: 250px;
 }
 
@@ -136,17 +136,34 @@ button:hover::before {
     background-size: cover;
 }
 
+.botones-ataque {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.botones-ataque2 {
+    position: relative;
+}
+
+.fotos {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 .vidas {
     display: flex;
     justify-content: center;
+    margin-top: 100px;
 }
 
-.vidas > p{
+.vidas p{
     margin: 10px;
     border: solid #395FAA;
     width: 370px;
     min-height: 370px;
-    height: fit-content;
 }
 
 .ataques {
@@ -167,4 +184,91 @@ a {
 
 a:hover {
     box-shadow: #395FAA 0 0 0 5px, transparent 0 0 0 0;
+}
+
+
+.tooltiptext {
+    visibility: hidden;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: 1s;
+    padding: 1px 6px 2px 10px;
+    border: solid #395FAA;
+    border-radius: 8px;
+    border-width: 2px;
+}
+
+#tooltip-doge {
+    top: 15px;
+    right: 110%;
+    width: 250px;
+}
+
+#tooltip-pepo {
+    width: 600px;
+    top: 108%;
+    left: 50%;
+    margin-left: -300px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+#tooltip-gueya {
+    top: 15px;
+    left: 110%;
+    width: 250px;
+}
+
+#tooltip-fuego {
+    right: 110%;
+    width: 300px;
+}
+
+#tooltip-agua {
+    width: 300px;
+    top: 120%;
+    left: 50%;
+    margin-left: -150px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+#tooltip-planta {
+    left: 110%;
+    width: 300px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tarjeta-mokepon:hover .tooltiptext, .botones-ataque2:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Adds a tooltip arrow */
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+  }
+
+#tooltip-doge::after, #tooltip-fuego::after {
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -10px;
+    border-color: transparent transparent transparent #395FAA;
+}
+
+#tooltip-pepo::after, #tooltip-agua::after {
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -10px;
+    border-color: transparent transparent #395FAA transparent;
+}
+
+#tooltip-gueya::after, #tooltip-planta::after {
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -10px;
+    border-color: transparent #395FAA transparent transparent;
 }
