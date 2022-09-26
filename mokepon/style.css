@@ -62,7 +62,7 @@ input {
 .tarjeta-mokepon::before {
     content: "";
     position: absolute;
-    background: url("img/ball.png");
+    background: url("https://i.imgur.com/nBktP12.png");
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
@@ -124,23 +124,23 @@ button:hover::before {
 }
 
 #boton-mascota::before {
-    background: url("img/selection.gif");
+    background: url("https://i.imgur.com/d0mALI2.gif");
     background-size: cover;
 }
 
 #boton-fuego::before {
-    background: url("img/fire.gif");
+    background: url("https://i.imgur.com/D4u9sC0.gif");
     background-size: cover;
 }
 
 #boton-agua::before {
     top: -60px;
-    background: url("img/water.gif");
+    background: url("https://i.imgur.com/NTNWaTI.gif");
     background-size: cover;
 }
 
 #boton-planta::before {
-    background: url("img/plant.gif");
+    background: url("https://i.imgur.com/sopJYsc.gif");
     background-size: cover;
 }
 

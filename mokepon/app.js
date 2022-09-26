@@ -1,5 +1,5 @@
 const mokepones = ["Hipodoge", "Capipepo", "Ratigueya"]
-const mokeponesImg = ["img/hipodoge.png", "img/capipepo.png", "img/ratigueya.png"]
+const mokeponesImg = ["https://i.imgur.com/bceFwyB.png", "https://i.imgur.com/mmyMNCU.png", "https://i.imgur.com/NIs4hyy.png"]
 const vidas = ["💀", "❤", "❤❤", "❤❤❤"]
 const q = selector => document.querySelector(selector) // shortcut para document.querySelector
 const qa = selector => document.querySelectorAll(selector) // shortcut para document.querySelectorAll
