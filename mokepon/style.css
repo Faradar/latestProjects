@@ -4,17 +4,23 @@
 }
 
 * {
+    padding: 0;
+	margin: 0;
 	box-sizing: border-box;
     text-align: center;
     font-family: pokemon;
     color: #FFCB05;
-    -webkit-text-stroke: 2px #395FAA; /* width and color */
-    letter-spacing: 4px;
+    -webkit-text-stroke: 0.2vmin #395FAA; /* width and color */
+    letter-spacing: 0.6vmin;
 }
 
 body {
-    font-size: 1.5em;
-    background: linear-gradient(90deg, #dc2f02ff 0%, #00b4d8ff 50%, #2a9134ff 100%);
+    width: 100%;
+    height: 100%;
+    font-size: 1.5vmax;
+    background: linear-gradient(90deg, #dc2f02ff, #00b4d8ff, #2a9134ff);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .tarjetas {
@@ -37,7 +43,8 @@ input {
     transition: box-shadow .2s,-webkit-box-shadow .2s;
     width: 250px;
     height: 250px;
-    margin: 10px;
+    margin: 1em;
+    padding: 0.5em;
     position: relative;
     cursor: pointer;
 }
@@ -49,13 +56,14 @@ input {
 .tarjeta-mokepon > img {
     width: 150px;
     text-align: start;
-    margin-bottom: -30px;
+    margin-bottom: -10px;
 }
 
 .tarjeta-mokepon::before {
     content: "";
     position: absolute;
     background: url("img/ball.png");
+    background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
     height: 100%;
@@ -68,9 +76,8 @@ input:checked + .tarjeta-mokepon::before {
     opacity: 1;
 }
 
-h1 {
-    margin-top: -40px;
-    margin-bottom: -50px;
+h1, h2 {
+    margin-top: -20px;
 }
 
 button {
@@ -209,10 +216,10 @@ a:hover {
 }
 
 #tooltip-pepo {
-    width: 600px;
+    width: 40vw;
     top: 108%;
     left: 50%;
-    margin-left: -300px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    margin-left: -20vw; /* Use half of the width to center the tooltip */
 }
 
 #tooltip-gueya {
@@ -271,4 +278,73 @@ a:hover {
     right: 100%; /* To the left of the tooltip */
     margin-top: -10px;
     border-color: transparent #395FAA transparent transparent;
+}
+
+#resultado-final > p{
+    margin: 10px;
+}
+
+#reiniciar {
+    margin-bottom: -80px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 2vmax;
+    }
+
+    .tarjetas {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .tarjeta-mokepon > img {
+        width: 150px;
+        text-align: start;
+        margin-bottom: 3vh;
+    }
+
+    .tarjeta-mokepon > p {
+        margin-bottom: 2vh;
+    }
+
+    #boton-mascota {
+        margin-top: 80px;
+        margin-bottom: 20px;
+    }
+
+    .botones-ataque {
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 75px;
+    }
+
+    #tooltip-doge, #tooltip-pepo, #tooltip-gueya, #tooltip-fuego, #tooltip-agua, #tooltip-planta {
+        width: 90vw;
+        top: 108%;
+        left: 50%;
+        margin-left: -45vw; /* Use half of the width to center the tooltip */
+    }
+
+    #tooltip-fuego, #tooltip-agua, #tooltip-planta {
+        margin-top: 10px;
+    }
+
+    #tooltip-doge::after, #tooltip-gueya::after, #tooltip-fuego::after, #tooltip-planta::after {
+        bottom: 100%;  /* At the top of the tooltip */
+        left: 50%;
+        margin-left: -10px;
+        border-color: transparent transparent #395FAA transparent;
+        top: auto;
+        margin-top: auto;
+        right: auto;
+    }
+
+    .vidas {
+        margin-top: 70px;
+    }
+
+    #reiniciar {
+        margin-bottom: -60px;
+    }
 }
