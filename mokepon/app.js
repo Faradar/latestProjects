@@ -21,15 +21,16 @@ q('#boton-mascota').addEventListener('click', () => {
         // cambia el texto en elegir ataque por la mascota que elige el usuario
         q("#mascota-jugador").innerHTML = mascotaJugador
         q("#mascota-enemigo").innerHTML = mascotaEnemigo
-        // cambia el texto del enemigo en elegir ataque por la mascota que se elige aleatoriamente
+        // y luego cambia el texto del enemigo por una mascota que se elige aleatoriamente
 
+        // Este for pone las fotos de los mokepones seleccionados en la seccion de ataque
         for (let i = 0; i < mokeponesImg.length; i++) {
             if (mascotaJugador == mokepones[i]) {
-                q("#foto-jugador").src = mokeponesImg[i];
+                q("#foto-jugador").src = mokeponesImg[i]
             }
 
             if (mascotaEnemigo == mokepones[i]) {
-                q("#foto-enemigo").src = mokeponesImg[i];
+                q("#foto-enemigo").src = mokeponesImg[i]
             }
         }
 
