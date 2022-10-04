@@ -17,7 +17,7 @@
 body {
     width: 100%;
     height: 100%;
-    font-size: 1.2vmax;
+    font-size: 25px;
     background: linear-gradient(90deg, #dc2f02ff, #00b4d8ff, #2a9134ff);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -162,13 +162,13 @@ button:hover::before {
     width: 50%;
 }
 
-.vidas {
+.victorias {
     display: flex;
     justify-content: center;
     margin-top: 100px;
 }
 
-.vidas p{
+.victorias p{
     margin: 10px;
     border: solid #395FAA;
     width: 370px;
@@ -196,7 +196,7 @@ a:hover {
 }
 
 
-.tooltiptext {
+.tooltip-text {
     visibility: hidden;
     text-align: center;
     padding: 5px 0;
@@ -212,72 +212,60 @@ a:hover {
 }
 
 #tooltip-doge {
-    top: 2vh;
+    top: 1.5vh;
     right: 110%;
     width: 250px;
 }
 
 #tooltip-pepo {
-    width: 32vw;
+    width: 40vw;
     top: 108%;
     left: 50%;
-    margin-left: -16vw; /* Use half of the width to center the tooltip */
+    margin-left: -20vw; /* Use half of the width to center the tooltip */
 }
 
 #tooltip-gueya {
-    top: 2vh;
+    top: 1.5vh;
     left: 110%;
     width: 250px;
 }
 
-#tooltip-fuego {
-    right: 110%;
-    width: 18vw;
-    top: 0.3vh;
-}
-
-#tooltip-agua {
-    width: 300px;
+.tooltip-ataque {
+    width: 350px;
     top: 120%;
     left: 50%;
     margin-left: -150px; /* Use half of the width (120/2 = 60), to center the tooltip */
 }
 
-#tooltip-planta {
-    left: 110%;
-    width: 18vw;
-    top: 0.3vh;
-}
-
 /* Show the tooltip text when you mouse over the tooltip container */
-.tarjeta-mokepon:hover .tooltiptext, .botones-ataque2:hover .tooltiptext {
+.tarjeta-mokepon:hover .tooltip-text, .botones-ataque2:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
 
 /* Adds a tooltip arrow */
-.tooltiptext::after {
+.tooltip-text::after {
     content: "";
     position: absolute;
     border-width: 10px;
     border-style: solid;
   }
 
-#tooltip-doge::after, #tooltip-fuego::after {
+#tooltip-doge::after {
     top: 50%;
     left: 100%; /* To the right of the tooltip */
     margin-top: -10px;
     border-color: transparent transparent transparent #395FAA;
 }
 
-#tooltip-pepo::after, #tooltip-agua::after {
+#tooltip-pepo::after, #tooltip-agua::after, #tooltip-fuego::after, #tooltip-planta::after {
     bottom: 100%;  /* At the top of the tooltip */
     left: 50%;
     margin-left: -10px;
     border-color: transparent transparent #395FAA transparent;
 }
 
-#tooltip-gueya::after, #tooltip-planta::after {
+#tooltip-gueya::after {
     top: 50%;
     right: 100%; /* To the left of the tooltip */
     margin-top: -10px;
@@ -320,7 +308,7 @@ a:hover {
     .botones-ataque {
         flex-direction: column;
         margin-top: 20px;
-        gap: 75px;
+        gap: 85px;
     }
 
     #tooltip-doge, #tooltip-pepo, #tooltip-gueya, #tooltip-fuego, #tooltip-agua, #tooltip-planta {
@@ -344,8 +332,8 @@ a:hover {
         right: auto;
     }
 
-    .vidas {
-        margin-top: 70px;
+    .victorias {
+        margin-top: 80px;
     }
 
     #reiniciar {
