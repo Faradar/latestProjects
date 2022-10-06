@@ -1,11 +1,18 @@
+/*
+Posibles cosas para mejorar:
+Hacer que sea claro de que tipo es cada mokepon
+*/
+
+
 class Mokepon {
-    constructor(n, f, v, t, tt) {
+    constructor(n, f, v, t, tt, ti) {
         this.nombre = n
         this.foto = f
         this.victoria = v
         this.ataque = []
         this.tooltip = t
         this.tooltipText = tt
+        this.tipo = ti
     }
 }
 
@@ -14,10 +21,15 @@ const qa = selector => document.querySelectorAll(selector) // shortcut para docu
 
 let mascotaJugador
 let mascotaEnemigo
+let ataquesRealizados = 0
+let mascotaEnemigoAtaques = 0
 let mokepones = [
-    new Mokepon("Hipodoge", "https://i.imgur.com/bceFwyB.png", 0, "doge", "El mejor amigo del hombre"),
-    new Mokepon("Capipepo", "https://i.imgur.com/mmyMNCU.png", 0, "pepo", "Mitad capibara mitad es un enigma"),
-    new Mokepon("Ratigueya", "https://i.imgur.com/NIs4hyy.png", 0, "gueya", "Con todo el poder de un niño rata")
+    new Mokepon("Hipodoge", "https://i.imgur.com/bceFwyB.png", 0, "doge", "El mejor amigo del hombre", 1),
+    new Mokepon("Capipepo", "https://i.imgur.com/mmyMNCU.png", 0, "pepo", "Mitad capibara mitad es un enigma", 2),
+    new Mokepon("Ratigueya", "https://i.imgur.com/NIs4hyy.png", 0, "gueya", "Con todo el poder de un niño rata", 0),
+    new Mokepon("Langostelvis", "https://i.imgur.com/xX2bzMP.png", 0, "elvis", "Un auténtico Presley", 0),
+    new Mokepon("Pydos", "https://i.imgur.com/TS7ZlFh.png", 0, "dos", "Algo sobre estar atorado y pedirle ayuda a tu hermanastro", 1),
+    new Mokepon("Tucapalma", "https://i.imgur.com/lXkxbIm.png", 0, "palma", "Aprendiz de Karen y siempre en busca de un gerente para quejarse", 2)
 ]
 
 mokepones[0].ataque.push(
@@ -42,6 +54,30 @@ mokepones[2].ataque.push(
     {nombre: "🔥", id: "boton-fuego", value: "0", nombreBoton: "Fuego 🔥", tooltipId: "fuego", tooltipText: "Quema las plantas"},
     {nombre: "💧", id: "boton-agua", value: "1", nombreBoton: "Agua 💧", tooltipId: "agua", tooltipText: "Apaga el fuego"},
     {nombre: "🌱", id: "boton-planta", value: "2", nombreBoton: "Planta 🌱", tooltipId: "planta", tooltipText: "Absorbe el agua"},
+)
+
+mokepones[3].ataque.push(
+    {nombre: "🔥", id: "boton-fuego", value: "0", nombreBoton: "Fuego 🔥", tooltipId: "fuego", tooltipText: "Quema las plantas"},
+    {nombre: "🔥", id: "boton-fuego", value: "0", nombreBoton: "Fuego 🔥", tooltipId: "fuego", tooltipText: "Quema las plantas"},
+    {nombre: "💧", id: "boton-agua", value: "1", nombreBoton: "Agua 💧", tooltipId: "agua", tooltipText: "Apaga el fuego"},
+    {nombre: "💧", id: "boton-agua", value: "1", nombreBoton: "Agua 💧", tooltipId: "agua", tooltipText: "Apaga el fuego"},
+    {nombre: "🌱", id: "boton-planta", value: "2", nombreBoton: "Planta 🌱", tooltipId: "planta", tooltipText: "Absorbe el agua"},
+)
+
+mokepones[4].ataque.push(
+    {nombre: "💧", id: "boton-agua", value: "1", nombreBoton: "Agua 💧", tooltipId: "agua", tooltipText: "Apaga el fuego"},
+    {nombre: "💧", id: "boton-agua", value: "1", nombreBoton: "Agua 💧", tooltipId: "agua", tooltipText: "Apaga el fuego"},
+    {nombre: "🌱", id: "boton-planta", value: "2", nombreBoton: "Planta 🌱", tooltipId: "planta", tooltipText: "Absorbe el agua"},
+    {nombre: "🌱", id: "boton-planta", value: "2", nombreBoton: "Planta 🌱", tooltipId: "planta", tooltipText: "Absorbe el agua"},
+    {nombre: "🔥", id: "boton-fuego", value: "0", nombreBoton: "Fuego 🔥", tooltipId: "fuego", tooltipText: "Quema las plantas"},
+)
+
+mokepones[5].ataque.push(
+    {nombre: "🌱", id: "boton-planta", value: "2", nombreBoton: "Planta 🌱", tooltipId: "planta", tooltipText: "Absorbe el agua"},
+    {nombre: "🌱", id: "boton-planta", value: "2", nombreBoton: "Planta 🌱", tooltipId: "planta", tooltipText: "Absorbe el agua"},
+    {nombre: "🔥", id: "boton-fuego", value: "0", nombreBoton: "Fuego 🔥", tooltipId: "fuego", tooltipText: "Quema las plantas"},
+    {nombre: "🔥", id: "boton-fuego", value: "0", nombreBoton: "Fuego 🔥", tooltipId: "fuego", tooltipText: "Quema las plantas"},
+    {nombre: "💧", id: "boton-agua", value: "1", nombreBoton: "Agua 💧", tooltipId: "agua", tooltipText: "Apaga el fuego"},
 )
 
 mokepones.forEach(mokepon => {
@@ -80,6 +116,14 @@ q('#boton-mascota').addEventListener('click', () => {
             }
         }
 
+        if (mascotaJugador.tipo == mascotaEnemigo.tipo) {
+            return
+        } else if (mascotaJugador.tipo == mascotaEnemigo.tipo + 1 || mascotaJugador.tipo == mascotaEnemigo.tipo - 2){
+            mascotaJugador.ataque.push (mascotaJugador.ataque[0])
+        } else {
+            mascotaEnemigo.ataque.push (mascotaEnemigo.ataque[0])
+        }
+
         // cambia el texto en elegir ataque por la mascota que elige el usuario
         q("#mascota-jugador").innerHTML = mascotaJugador.nombre
         q("#mascota-enemigo").innerHTML = mascotaEnemigo.nombre
@@ -113,6 +157,10 @@ q('#boton-mascota').addEventListener('click', () => {
                 const ataqueEnemigoValue = parseInt(ataqueAleatorio.value)
                 const index = mascotaEnemigo.ataque.indexOf(ataqueAleatorio)
 
+                if (mascotaEnemigoAtaques == 0) {
+                    mascotaEnemigoAtaques = mascotaEnemigo.ataque.slice()
+                }
+
                 // Remueve los ataques que el enemigo ya uso
                 if (index > -1) { // only splice array when item is found
                     mascotaEnemigo.ataque.splice(index, 1) // 2nd parameter means remove one item only
@@ -121,8 +169,10 @@ q('#boton-mascota').addEventListener('click', () => {
                 q("#mensaje-jugador").innerHTML += ataqueJugador.slice(-2) + "<br>" //el slice es para que solo me de el simbolo del ataque
                 q("#mensaje-enemigo").innerHTML += ataqueEnemigo + "<br>"
 
+                ataquesRealizados += 1
+
                 if (ataqueJugadorValue == ataqueEnemigoValue) {
-                    return
+                    mascotaJugador.victoria += 0
                 } else if (ataqueJugadorValue == ataqueEnemigoValue + 1 || ataqueJugadorValue == ataqueEnemigoValue - 2) {
                     mascotaJugador.victoria += 1
                     q("#victoria-jugador").innerHTML = mascotaJugador.victoria
@@ -131,7 +181,7 @@ q('#boton-mascota').addEventListener('click', () => {
                     q("#victoria-enemigo").innerHTML = mascotaEnemigo.victoria
                 }
 
-                if (mascotaEnemigo.ataque.length < 1) { // esto no sucede hasta que el enemigo haga todos sus ataques
+                if (ataquesRealizados > 4) { // esto no sucede hasta que el enemigo haga todos sus ataques
                     if (mascotaJugador.victoria < mascotaEnemigo.victoria) {
 
                         q("#resultado-final").innerHTML = `Su ${mascotaEnemigo.nombre} derroto a tu ${mascotaJugador.nombre}.<p>
@@ -151,6 +201,36 @@ q('#boton-mascota').addEventListener('click', () => {
                         target="_blank" rel="noopener noreferrer">Felicitaciones, has Ganado! 🎊</a><p>Fin del combate.`
                         qa(".botones-ataque2").forEach(boton => boton.remove())
                         q("#reiniciar").hidden = false
+
+                    } else {
+
+                        q("#resultado-final").innerHTML = `Tu ${mascotaJugador.nombre} empato contra su ${mascotaEnemigo.nombre}.<p>
+                        <a href="https://www.youtube.com/watch?v=hBkHNTCIvrE&ab_channel=VideoGamesMusic"
+                        target="_blank" rel="noopener noreferrer">Esto no puede quedar así, intentalo de nuevo! 💪</a><p>Fin del combate.`
+                        qa(".botones-ataque2").forEach(boton => boton.style.display = "none")
+                        // En este caso, en lugar de borrar los botones simplemente hago que se dejen de mostrar
+                        q("#reiniciar").hidden = false
+
+                        // Para los empates decidi crear un boton de revancha, y permita volver a hacer esa pelea para desempatar
+                        q("#reiniciar > div").innerHTML = `<button id="boton-revancha">Revancha</button>`
+                        q("#boton-revancha").addEventListener("click", () => {
+                            q("#reiniciar").hidden = true
+                            q("#resultado-final").innerHTML = ""
+                            qa(".botones-ataque2").forEach(boton => boton.style.display = "block")
+                            qa(".ataque").forEach(boton => {
+                                boton.disabled = false
+                                boton.style.background = "none"
+                            })
+                            q("#mensaje-jugador").innerHTML = ""
+                            q("#mensaje-enemigo").innerHTML = ""
+                            mascotaJugador.victoria = 0
+                            mascotaEnemigo.victoria = 0
+                            q("#victoria-jugador").innerHTML = 0
+                            q("#victoria-enemigo").innerHTML = 0
+                            ataquesRealizados = 0
+                            mascotaEnemigo.ataque = mascotaEnemigoAtaques
+                            mascotaEnemigoAtaques = 0
+                        })
                     }
                 }
             })

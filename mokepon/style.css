@@ -41,7 +41,7 @@ input {
     border-radius: 8px;
     border-width: 2px;
     transition: box-shadow .2s,-webkit-box-shadow .2s;
-    width: 250px;
+    width: 260px;
     height: 250px;
     margin: 1em;
     padding: 0.5em;
@@ -119,7 +119,7 @@ button:hover::before {
 #boton-mascota {
     display: block;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 200px;
     width: 250px;
 }
 
@@ -171,7 +171,7 @@ button:hover::before {
 .victorias p{
     margin: 10px;
     border: solid #395FAA;
-    width: 370px;
+    width: 450px;
     min-height: 370px;
 }
 
@@ -209,25 +209,10 @@ a:hover {
     border: solid #395FAA;
     border-radius: 8px;
     border-width: 2px;
-}
-
-#tooltip-doge {
-    top: 1.5vh;
-    right: 110%;
-    width: 250px;
-}
-
-#tooltip-pepo {
-    width: 40vw;
+    width: 20vw;
     top: 108%;
     left: 50%;
-    margin-left: -20vw; /* Use half of the width to center the tooltip */
-}
-
-#tooltip-gueya {
-    top: 1.5vh;
-    left: 110%;
-    width: 250px;
+    margin-left: -10vw; /* Use half of the width to center the tooltip */
 }
 
 .tooltip-ataque {
@@ -249,28 +234,11 @@ a:hover {
     position: absolute;
     border-width: 10px;
     border-style: solid;
-  }
-
-#tooltip-doge::after {
-    top: 50%;
-    left: 100%; /* To the right of the tooltip */
-    margin-top: -10px;
-    border-color: transparent transparent transparent #395FAA;
-}
-
-#tooltip-pepo::after, #tooltip-agua::after, #tooltip-fuego::after, #tooltip-planta::after {
     bottom: 100%;  /* At the top of the tooltip */
     left: 50%;
     margin-left: -10px;
     border-color: transparent transparent #395FAA transparent;
-}
-
-#tooltip-gueya::after {
-    top: 50%;
-    right: 100%; /* To the left of the tooltip */
-    margin-top: -10px;
-    border-color: transparent #395FAA transparent transparent;
-}
+  }
 
 #resultado-final > p{
     margin: 10px;
@@ -280,6 +248,11 @@ a:hover {
     margin-bottom: -80px;
 }
 
+#boton-revancha {
+    margin-top: 20px;
+    letter-spacing: 0.48vmin;
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 2vmax;
@@ -287,13 +260,13 @@ a:hover {
 
     .tarjetas {
         flex-direction: column;
-        gap: 50px;
+        gap: 100px;
     }
 
     .tarjeta-mokepon > img {
         width: 150px;
         text-align: start;
-        margin-bottom: 3vh;
+        margin-bottom: 0.5vh;
     }
 
     .tarjeta-mokepon > p {
@@ -301,7 +274,7 @@ a:hover {
     }
 
     #boton-mascota {
-        margin-top: 80px;
+        margin-top: 130px;
         margin-bottom: 20px;
     }
 
@@ -311,7 +284,7 @@ a:hover {
         gap: 85px;
     }
 
-    #tooltip-doge, #tooltip-pepo, #tooltip-gueya, #tooltip-fuego, #tooltip-agua, #tooltip-planta {
+    .tooltip-text {
         width: 90vw;
         top: 108%;
         left: 50%;
