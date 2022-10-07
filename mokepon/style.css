@@ -78,7 +78,12 @@ input:checked + .tarjeta-mokepon::before {
 
 h1, h2 {
     margin-top: -10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#mapa {
+    margin-top: 30px;
+    border: 2px solid white;
 }
 
 button {
@@ -119,7 +124,7 @@ button:hover::before {
 #boton-mascota {
     display: block;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 230px;
     width: 250px;
 }
 
@@ -249,7 +254,6 @@ a:hover {
 }
 
 #boton-revancha {
-    margin-top: 20px;
     letter-spacing: 0.48vmin;
 }
 
@@ -260,7 +264,7 @@ a:hover {
 
     .tarjetas {
         flex-direction: column;
-        gap: 100px;
+        gap: 120px;
     }
 
     .tarjeta-mokepon > img {
@@ -274,7 +278,7 @@ a:hover {
     }
 
     #boton-mascota {
-        margin-top: 130px;
+        margin-top: 180px;
         margin-bottom: 20px;
     }
 
