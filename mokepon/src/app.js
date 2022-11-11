@@ -84,7 +84,7 @@ let ataqueJugadorValue
 let ataqueEnemigo
 let ataqueEnemigoValue
 let index
-let continuando = false
+let mascotaJugadorAtaques
 let mascotaEnemigoAtaques
 let ataquesRealizados = 0
 let movimiento = 10
@@ -98,7 +98,6 @@ if (q("#mapa").width > widthMax) {
 }
 q("#mapa").height = q("#mapa").width * 600 / 800
 
-login()
 añadirAtaques()
 posicionesMokepones()
 mokepones.forEach(mokepon => {
@@ -126,19 +125,6 @@ q('#boton-mascota').addEventListener('click', () => {
 q("#boton-reiniciar").addEventListener("click", () => {
     location.reload() // reloads the page
 })
-
-function login() {
-    fetch("http://localhost:8080/unirse")
-        .then((res) => {
-            if (res.ok) {
-                res.text()
-                    .then((respuesta) => {
-                        console.log(respuesta)
-                        jugadorId = respuesta
-                    })
-            }
-        })
-}
 
 function añadirAtaques() {
     mokepones[0].ataque.push(
@@ -214,21 +200,9 @@ function eleccionJugador() {
             ))
             mascotaJugador = mokepones[mokepones.length - 1]
             mascotaJugador.ataque = mokepones[i].ataque
+            mascotaJugadorAtaques = [...mascotaJugador.ataque]
         }
     }
-    eleccionBackend(mascotaJugador)
-}
-
-function eleccionBackend(mascotaJugador) {
-    fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
-        method: 'post',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            mokepon: mascotaJugador.nombre
-        })
-    })
 }
 
 // Quien tenga un tipo "superior" recibe un ataque extra equivalente a su tipo (si es tipo fuego recibe un ataque de fuego)
@@ -316,28 +290,6 @@ function keysPressed(e) {
     }
     // e.preventDefault() // prevents your browser from reacting to any keyboard events as long as your page has focus
     pintarCanvas()
-    enviarPosicion(mascotaJugador.x, mascotaJugador.y)
-}
-
-function enviarPosicion(x, y) {
-    fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
-        method: 'post',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            x,
-            y
-        })
-    })
-    .then((res) => {
-        if(res.ok) {
-            res.json()
-                .then(({enemigos}) => {
-                    console.log(enemigos)
-                })
-        }
-    })
 }
 
 function keysReleased(e) {
@@ -372,15 +324,12 @@ function revisarColision(enemigo) {
 function revelarAtaque() {
     q("#ver-mapa").style.display = "none"
     q("#seleccionar-ataque").hidden = false
+    mascotaJugador.ataque = [...mascotaJugadorAtaques]
     tipoSuperior(mascotaJugador, mascotaEnemigo)
     ponerFotos()
     ponerTexto()
-    if (continuando) {
-        return
-    } else {
-        ponerAtaques()
-        botonesAtaque()
-    }
+    ponerAtaques()
+    botonesAtaque()
 }
 
 function botonesAtaque() {
@@ -482,15 +431,14 @@ function fin(mokepon1, resolucion, mokepon2, link, texto) {
 function continuar() {
     q("#boton-continuar").hidden = false
     q("#boton-continuar").addEventListener("click", () => {
-        continuando = true
         q("#reiniciar").hidden = true
         q("#boton-continuar").hidden = true
         q("#resultado-final").innerHTML = ""
-        qa(".botones-ataque2").forEach(boton => boton.style.display = "block")
-        qa(".ataque").forEach(boton => {
+        qa(".botones-ataque2").forEach(boton => boton.remove())
+/*         qa(".ataque").forEach(boton => {
             boton.disabled = false
             boton.style.background = "none"
-        })
+        }) */
         q("#mensaje-jugador").innerHTML = ""
         q("#mensaje-enemigo").innerHTML = ""
         mascotaJugador.victoria = 0
