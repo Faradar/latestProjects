@@ -1,5 +1,3 @@
-*.png
-*.ttf
-*.gif
-extra/
-!mokepon/fonts/*.ttf
+img
+fonts
+!mokepon/fonts
